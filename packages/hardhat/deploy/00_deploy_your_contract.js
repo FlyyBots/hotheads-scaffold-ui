@@ -17,7 +17,66 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   const { deployer } = await getNamedAccounts();
   const chainId = await getChainId();
 
-  await deploy("YourContract", {
+  await deploy("BASE_TOKEN", {
+    // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
+    from: deployer,
+    // args: [ "Hello", ethers.utils.parseEther("1.5") ],
+    log: true,
+    waitConfirmations: 5,
+  });
+
+  const Base_Token = await ethers.getContract("BASE_TOKEN", deployer);
+
+
+  await deploy("BOARDROOM", {
+    // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
+    from: deployer,
+    // args: [ "Hello", ethers.utils.parseEther("1.5") ],
+    log: true,
+    waitConfirmations: 5,
+  });
+
+  await deploy("Farms", {
+    // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
+    from: deployer,
+    // args: [ "Hello", ethers.utils.parseEther("1.5") ],
+    log: true,
+    waitConfirmations: 5,
+  });
+
+  await deploy("Genesis", {
+    // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
+    from: deployer,
+    // args: [ "Hello", ethers.utils.parseEther("1.5") ],
+    log: true,
+    waitConfirmations: 5,
+  });
+
+  await deploy("MIM", {
+    // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
+    from: deployer,
+    // args: [ "Hello", ethers.utils.parseEther("1.5") ],
+    log: true,
+    waitConfirmations: 5,
+  });
+
+  await deploy("SHARE", {
+    // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
+    from: deployer,
+    // args: [ "Hello", ethers.utils.parseEther("1.5") ],
+    log: true,
+    waitConfirmations: 5,
+  });
+
+  await deploy("BIGSHARE", {
+    // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
+    from: deployer,
+    // args: [ "Hello", ethers.utils.parseEther("1.5") ],
+    log: true,
+    waitConfirmations: 5,
+  });
+
+  await deploy("LARGESHARE", {
     // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
     from: deployer,
     // args: [ "Hello", ethers.utils.parseEther("1.5") ],
@@ -26,11 +85,11 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   });
 
   // Getting a previously deployed contract
-  const YourContract = await ethers.getContract("YourContract", deployer);
+  const BASE_TOKEN = await ethers.getContract("BASE_TOKEN", deployer);
   /*  await YourContract.setPurpose("Hello");
-  
-    To take ownership of yourContract using the ownable library uncomment next line and add the 
-    address you want to be the owner. 
+
+    To take ownership of yourContract using the ownable library uncomment next line and add the
+    address you want to be the owner.
     // await yourContract.transferOwnership(YOUR_ADDRESS_HERE);
 
     //const yourContract = await ethers.getContractAt('YourContract', "0xaAC799eC2d00C013f1F11c37E654e59B0429DF6A") //<-- if you want to instantiate a version of a contract at a specific address!
@@ -76,4 +135,4 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   //   console.error(error);
   // }
 };
-module.exports.tags = ["YourContract"];
+module.exports.tags = ["BASE_TOKEN", "BOARDROOM", "Farms", "genesis", "MIM", "SHARE", "wrapperbigtolarge", "wrappersmalltobig"];
